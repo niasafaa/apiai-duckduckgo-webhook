@@ -26,10 +26,10 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
 
-    #res = processRequest(req)
+    res = processRequest(req)
 
-    res = json.dumps(req, indent=4)
-    print(res)
+    res = json.dumps(res, indent=4)
+    #print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
@@ -52,6 +52,7 @@ def processRequest(req):
 def makeYqlQuery(req):
     result = req.get("result")
     query = result.get("resolvedQuery")
+    print (query)
     if query is None:
         return None
 
