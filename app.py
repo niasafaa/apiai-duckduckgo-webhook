@@ -38,7 +38,7 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "DuckDuckGoInstantAnswer":
         return {}
-    baseurl = "http://api.duckduckgo.com/?q=DuckDuckGo"
+    baseurl = "http://api.duckduckgo.com/?"
     yql_query = makeYqlQuery(req)
     if yql_query is None:
         return {}
