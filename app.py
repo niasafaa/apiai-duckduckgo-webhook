@@ -56,7 +56,7 @@ def processRequest(req):
 
 def makeYqlQuery(req):
     result = req.get("result")
-    #print("make_result" + type(result))
+    print("make_result" + type(result))
     query = result.get("resolvedQuery")
     #print ("QUERY\n" + type(query))
     if query is None:
