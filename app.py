@@ -56,7 +56,6 @@ def processRequest(req):
 def makeYqlQuery(req):
     result = req.get("result")
     query = result.get("resolvedQuery")
-    #print ("QUERY\n" + type(query))
     if query is None:
         return None
 
@@ -64,27 +63,11 @@ def makeYqlQuery(req):
 
 
 def makeWebhookResult(data):
-    # query = data.get('query')
-    # if query is None:
-    #     return {}
-
-    #print ("RESULT_QUERY\n" + type(query))
-
-    answer = data.get('abstract')
+    answer = data.get('Abstract')
     if answer is None:
         return {}
 
-    # item = channel.get('item')
-    # location = channel.get('location')
-    # units = channel.get('units')
-    # if (location is None) or (item is None) or (units is None):
-    #     return {}
-    #
-    # condition = item.get('condition')
-    # if condition is None:
-    #     return {}
-
-    # print(json.dumps(item, indent=4))
+    print(json.dumps(answer, indent=4))
 
     speech = answer
 
