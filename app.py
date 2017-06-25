@@ -29,7 +29,7 @@ def webhook():
     res = processRequest(req)
 
     res = json.dumps(res, indent=4)
-    print(res)
+    print("RES\n" + res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
@@ -40,6 +40,7 @@ def processRequest(req):
         return {}
     baseurl = "http://api.duckduckgo.com/?"
     yql_query = makeYqlQuery(req)
+    print ("YQL_QUERY\n" + yql_query)
     if yql_query is None:
         return {}
     yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
@@ -52,7 +53,7 @@ def processRequest(req):
 def makeYqlQuery(req):
     result = req.get("result")
     query = result.get("resolvedQuery")
-    print (query)
+    print ("QUERY\n" + query)
     if query is None:
         return None
 
@@ -64,7 +65,7 @@ def makeWebhookResult(data):
     if query is None:
         return {}
 
-    print (query)
+    print ("RESULT_QUERY\n" + query)
 
     answer = result.get('abstract')
     if answer is None:
