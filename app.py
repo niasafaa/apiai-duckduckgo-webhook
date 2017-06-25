@@ -4,8 +4,8 @@ from __future__ import print_function
 from future.standard_library import install_aliases
 install_aliases()
 
-from urllib2.parse import urlparse, urlencode
-from urllib2.request import urlopen, Request
+from urllib.parse import urlparse, urlencode
+from urllib.request import urlopen, Request
 
 
 import json
@@ -45,7 +45,7 @@ def processRequest(req):
         return {}
     yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
     print("yql_url:" + yql_url)
-    result = urlopen(yql_url).read()
+    result = urlopen(yql_url).read().decode("utf8")
     data = json.loads(result)
     res = makeWebhookResult(data)
     return res
