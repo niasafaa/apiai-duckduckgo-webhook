@@ -50,11 +50,13 @@ def processRequest(req):
     data = json.loads(result)
     print ("data" + data)
     res = makeWebhookResult(data)
+    print ("prRES" + res)
     return res
 
 
 def makeYqlQuery(req):
     result = req.get("result")
+    print( "make_result" + result)
     query = result.get("resolvedQuery")
     print ("QUERY\n" + query)
     if query is None:
