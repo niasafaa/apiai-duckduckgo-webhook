@@ -64,11 +64,9 @@ def makeWebhookResult(data):
     if query is None:
         return {}
 
-    result = query.get('results')
-    if result is None:
-        return {}
+    print (query)
 
-    answer = result.get('answer')
+    answer = result.get('abstract')
     if answer is None:
         return {}
 
