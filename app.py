@@ -6,7 +6,7 @@ install_aliases()
 
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
-from urllib.error import HTTPError
+
 
 import json
 import os
@@ -56,7 +56,7 @@ def processRequest(req):
 
 def makeYqlQuery(req):
     result = req.get("result")
-    print( "make_result" + result)
+    print("make_result" + result)
     query = result.get("resolvedQuery")
     print ("QUERY\n" + query)
     if query is None:
@@ -72,7 +72,7 @@ def makeWebhookResult(data):
 
     print ("RESULT_QUERY\n" + query)
 
-    answer = result.get('abstract')
+    answer = query.get('abstract')
     if answer is None:
         return {}
 
