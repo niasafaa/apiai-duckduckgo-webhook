@@ -64,13 +64,13 @@ def makeYqlQuery(req):
 
 
 def makeWebhookResult(data):
-    query = data.get('query')
-    if query is None:
-        return {}
+    # query = data.get('query')
+    # if query is None:
+    #     return {}
 
     #print ("RESULT_QUERY\n" + type(query))
 
-    answer = query.get('abstract')
+    answer = data.get('abstract')
     if answer is None:
         return {}
 
