@@ -48,6 +48,7 @@ def processRequest(req):
     result = urlopen(yql_url).read()
     print ("result:" + result)
     data = json.loads(result)
+    print ("data" + data)
     res = makeWebhookResult(data)
     return res
 
